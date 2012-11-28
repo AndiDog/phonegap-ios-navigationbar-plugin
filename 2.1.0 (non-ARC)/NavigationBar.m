@@ -5,7 +5,7 @@
  (https://github.com/hutley/HelloPhoneGap1.0/) and zSprawl (https://github.com/zSprawl/NativeControls/).
 
  Navigation bar API cleaned, improved and moved in a separate plugin by Andreas Sommer
- (AndiDog, https://github.com/AndiDog/phonegap-plugins).
+ (AndiDog, https://github.com/AndiDog/phonegap-ios-navigationbar-plugin).
  */
 
 #import "NavigationBar.h"
