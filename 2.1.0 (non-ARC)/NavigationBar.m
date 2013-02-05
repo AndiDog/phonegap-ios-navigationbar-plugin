@@ -21,6 +21,8 @@
 #endif
 @synthesize navBarController;
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 -(CDVPlugin*) initWithWebView:(UIWebView*)theWebView
 {
     self = (NavigationBar*)[super initWithWebView:theWebView];
@@ -375,6 +377,52 @@
     NSString *title = [command.arguments objectAtIndex:0];
     if(navBarController.navItem.leftBarButtonItem)
         navBarController.navItem.leftBarButtonItem.title = title;
+}
+
+
+- (void)setLeftButtonTint:(CDVInvokedUrlCommand*)command
+{
+    if(navBarController.navItem.leftBarButtonItem) {
+    NSString *tint =[command.arguments objectAtIndex:0];
+    NSArray *rgba = [tint componentsSeparatedByString:@","];
+    navBarController.navItem.leftBarButtonItem.tintColor = [UIColor colorWithRed:[[rgba objectAtIndex:0] intValue]/255.0f
+                                       green:[[rgba objectAtIndex:1] intValue]/255.0f
+                                        blue:[[rgba objectAtIndex:2] intValue]/255.0f
+                                       alpha:[[rgba objectAtIndex:3] intValue]/255.0f];
+    }
+
+}
+
+- (void)setRightButtonTint:(CDVInvokedUrlCommand*)command
+{
+    if(navBarController.navItem.rightBarButtonItem) {
+        NSString *tint =[command.arguments objectAtIndex:0];
+        NSArray *rgba = [tint componentsSeparatedByString:@","];
+        navBarController.navItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:[[rgba objectAtIndex:0] intValue]/255.0f
+                                                                               green:[[rgba objectAtIndex:1] intValue]/255.0f
+                                                                                blue:[[rgba objectAtIndex:2] intValue]/255.0f
+                                                                               alpha:[[rgba objectAtIndex:3] intValue]/255.0f];
+    }
+    
+}
+
+- (void)setRightButtonEnabled:(CDVInvokedUrlCommand*)command
+{
+    if(navBarController.navItem.rightBarButtonItem) {
+        NSString *option =[command.arguments objectAtIndex:0];
+        navBarController.navItem.rightBarButtonItem.enabled = [option boolValue];;
+    }
+    
+}
+
+
+- (void)setLeftButtonEnabled:(CDVInvokedUrlCommand*)command
+{
+    if(navBarController.navItem.leftBarButtonItem) {
+        NSString *option =[command.arguments objectAtIndex:0];
+        navBarController.navItem.leftBarButtonItem.enabled = [option boolValue];;
+    }
+    
 }
 
 - (void)showLeftButton:(CDVInvokedUrlCommand*)command
