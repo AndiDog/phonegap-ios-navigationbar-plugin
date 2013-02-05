@@ -36,9 +36,13 @@
 
 - (void)hideLeftButton:(CDVInvokedUrlCommand*)command;
 - (void)setLeftButtonTitle:(CDVInvokedUrlCommand*)command;
+- (void)setLeftButtonTint:(CDVInvokedUrlCommand*)command;
+- (void)setRightButtonEnabled:(CDVInvokedUrlCommand*)command;
 - (void)showLeftButton:(CDVInvokedUrlCommand*)command;
 - (void)hideLeftButton:(CDVInvokedUrlCommand*)command;
 - (void)setRightButtonTitle:(CDVInvokedUrlCommand*)command;
+- (void)setLeftButtonTint:(CDVInvokedUrlCommand*)command;
+- (void)setRightButtonEnabled:(CDVInvokedUrlCommand*)command;
 - (void)showRightButton:(CDVInvokedUrlCommand*)command;
 
 @end
