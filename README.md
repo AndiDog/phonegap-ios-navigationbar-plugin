@@ -86,6 +86,14 @@ This example shows how to use the navigation bar:
             }
         )
 
+        // You can also enable/disable a button
+        plugins.navigationBar.setLeftButtonEnabled(false)
+        plugins.navigationBar.setRightButtonEnabled(true) // enabled (default)
+
+        // or change the tint color (>= iOS 5)
+        plugins.navigationBar.setLeftButtonTint('255,0,0,128') // strong red
+        plugins.navigationBar.setRightButtonTint('20,180,0,60') // green
+
         plugins.navigationBar.show()
     }, false)
 

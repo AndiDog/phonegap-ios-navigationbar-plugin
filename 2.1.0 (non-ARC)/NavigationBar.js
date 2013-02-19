@@ -50,6 +50,16 @@ NavigationBar.prototype.hideLeftButton = function(options)
     cordova.exec("NavigationBar.hideLeftButton", options)
 };
 
+NavigationBar.prototype.setLeftButtonEnabled = function(enabled)
+{
+    cordova.exec("NavigationBar.setLeftButtonEnabled", enabled)
+};
+
+NavigationBar.prototype.setLeftButtonTint = function(tintColorRgba)
+{
+    cordova.exec("NavigationBar.setLeftButtonTint", tintColorRgba)
+};
+
 NavigationBar.prototype.setLeftButtonTitle = function(title)
 {
     cordova.exec("NavigationBar.setLeftButtonTitle", title)
@@ -90,6 +100,16 @@ NavigationBar.prototype.hideRightButton = function(options)
         options.animated = false
 
     cordova.exec("NavigationBar.hideRightButton", options)
+};
+
+NavigationBar.prototype.setRightButtonEnabled = function(enabled)
+{
+    cordova.exec("NavigationBar.setRightButtonEnabled", enabled)
+};
+
+NavigationBar.prototype.setRightButtonTint = function(tintColorRgba)
+{
+    cordova.exec("NavigationBar.setRightButtonTint", tintColorRgba)
 };
 
 NavigationBar.prototype.setRightButtonTitle = function(title)

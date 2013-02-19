@@ -370,6 +370,35 @@
     [[navBarController navItem] setLeftBarButtonItem:nil animated:animated];
 }
 
+- (void)setLeftButtonEnabled:(CDVInvokedUrlCommand*)command
+{
+    if(navBarController.navItem.leftBarButtonItem)
+    {
+        id enabled = [command.arguments objectAtIndex:0];
+        navBarController.navItem.leftBarButtonItem.enabled = [enabled boolValue];
+    }
+}
+
+- (void)setLeftButtonTint:(CDVInvokedUrlCommand*)command
+{
+    if(!navBarController.navItem.leftBarButtonItem)
+        return;
+
+    if(![navBarController.navItem.leftBarButtonItem respondsToSelector:@selector(setTintColor:)])
+    {
+        NSLog(@"setLeftButtonTint unsupported < iOS 5");
+        return;
+    }
+
+    id tint = [command.arguments objectAtIndex:0];
+    NSArray *rgba = [tint componentsSeparatedByString:@","];
+    UIColor *tintColor = [UIColor colorWithRed:[[rgba objectAtIndex:0] intValue]/255.0f
+                                         green:[[rgba objectAtIndex:1] intValue]/255.0f
+                                          blue:[[rgba objectAtIndex:2] intValue]/255.0f
+                                         alpha:[[rgba objectAtIndex:3] intValue]/255.0f];
+    navBarController.navItem.leftBarButtonItem.tintColor = tintColor;
+}
+
 - (void)setLeftButtonTitle:(CDVInvokedUrlCommand*)command
 {
     NSString *title = [command.arguments objectAtIndex:0];
@@ -391,6 +420,35 @@
     bool animated = [[options objectForKey:@"animated"] boolValue];
 
     [[navBarController navItem] setRightBarButtonItem:nil animated:animated];
+}
+
+- (void)setRightButtonEnabled:(CDVInvokedUrlCommand*)command
+{
+    if(navBarController.navItem.rightBarButtonItem)
+    {
+        id enabled = [command.arguments objectAtIndex:0];
+        navBarController.navItem.rightBarButtonItem.enabled = [enabled boolValue];
+    }
+}
+
+- (void)setRightButtonTint:(CDVInvokedUrlCommand*)command
+{
+    if(!navBarController.navItem.rightBarButtonItem)
+        return;
+
+    if(![navBarController.navItem.rightBarButtonItem respondsToSelector:@selector(setTintColor:)])
+    {
+        NSLog(@"setRightButtonTint unsupported < iOS 5");
+        return;
+    }
+
+    id tint = [command.arguments objectAtIndex:0];
+    NSArray *rgba = [tint componentsSeparatedByString:@","];
+    UIColor *tintColor = [UIColor colorWithRed:[[rgba objectAtIndex:0] intValue]/255.0f
+                                         green:[[rgba objectAtIndex:1] intValue]/255.0f
+                                          blue:[[rgba objectAtIndex:2] intValue]/255.0f
+                                         alpha:[[rgba objectAtIndex:3] intValue]/255.0f];
+    navBarController.navItem.rightBarButtonItem.tintColor = tintColor;
 }
 
 - (void)setRightButtonTitle:(CDVInvokedUrlCommand*)command
