@@ -423,14 +423,14 @@
 
 -(void) leftButtonTapped
 {
-    NSString * jsCallBack = @"window.plugins.navigationBar.leftButtonTapped();";
-    [self.webView stringByEvaluatingJavaScriptFromString:jsCallBack];
+    NSString * jsCallBack = [NSString stringWithFormat:@"cordova.require('cordova/plugin/iOSNavigationBar').leftButtonTapped();"];
+    [self writeJavascript:jsCallBack];
 }
 
 -(void) rightButtonTapped
 {
-    NSString * jsCallBack = @"window.plugins.navigationBar.rightButtonTapped();";
-    [self.webView stringByEvaluatingJavaScriptFromString:jsCallBack];
+    NSString * jsCallBack = [NSString stringWithFormat:@"cordova.require('cordova/plugin/iOSNavigationBar').rightButtonTapped();"];
+    [self writeJavascript:jsCallBack];
 }
 
 -(void) show:(CDVInvokedUrlCommand*)command

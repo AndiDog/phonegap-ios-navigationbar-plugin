@@ -21,7 +21,7 @@
                 var readyElement = document.getElementById("ready");
                 readyElement.innerHTML = "deviceready called but not finished";
 
-                var navBar = window.plugins.navigationBar;
+                var navBar = cordova.require("cordova/plugin/iOSNavigationBar");
                 var tabBar = cordova.require("cordova/plugin/iOSTabBar");
 
                 navBar.init();

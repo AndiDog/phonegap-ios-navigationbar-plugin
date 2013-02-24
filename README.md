@@ -35,7 +35,8 @@ Note regarding orientation changes and the tab bar plugin
 If the tab bar plugin is used together with this plugin and the tab bar is positioned on top (defaults to bottom), it's necessary to resize the navigation bar automatically:
 
     window.addEventListener("resize", function() {
-        plugins.navigationBar.resize()
+        var navBar = cordova.require("cordova/plugin/iOSNavigationBar")
+        navBar.resize()
     ), false)
 
 Using the tab bar and navigation bar plugin together
@@ -46,11 +47,14 @@ In order to use the [tab bar plugin](https://github.com/AndiDog/phonegap-plugins
     document.addEventListener("deviceready", function() {
         console.log("Cordova ready")
 
-        plugins.navigationBar.init()
-        plugins.tabBar.init()
+        var navBar = cordova.require("cordova/plugin/iOSNavigationBar")
+        var tabBar = cordova.require("cordova/plugin/iOSTabBar")
 
-        plugins.navigationBar.create()
-        plugins.tabBar.create()
+        navBar.init()
+        tabBar.init()
+
+        navBar.create()
+        tabBar.create()
 
         // ...
 
@@ -64,30 +68,32 @@ This example shows how to use the navigation bar:
     document.addEventListener("deviceready", function() {
         console.log("Cordova ready")
 
-        plugins.navigationBar.init()
+        var navBar = cordova.require("cordova/plugin/iOSNavigationBar")
 
-        plugins.navigationBar.create()
+        navBar.init()
+
+        navBar.create()
         // or to apply a certain style (one of "Black", "BlackOpaque", "BlackTranslucent", "Default"):
-        plugins.navigationBar.create("BlackOpaque")
+        navBar.create("BlackOpaque")
         // or with a yellow tint color (note: parameters might be changed to one object in a later version)
-        plugins.navigationBar.create('BlackOpaque', {tintColorRgba: '255,255,0,255'})
+        navBar.create('BlackOpaque', {tintColorRgba: '255,255,0,255'})
 
-        plugins.navigationBar.hideLeftButton()
-        plugins.navigationBar.hideRightButton()
+        navBar.hideLeftButton()
+        navBar.hideRightButton()
 
-        plugins.navigationBar.setTitle("My heading")
+        navBar.setTitle("My heading")
 
-        plugins.navigationBar.showLeftButton()
-        plugins.navigationBar.showRightButton()
+        navBar.showLeftButton()
+        navBar.showRightButton()
 
         // Create left navigation button with a title (you can either have a title or an image, not both!)
-        plugins.navigationBar.setupLeftButton("Text", null, function() {
+        navBar.setupLeftButton("Text", null, function() {
             alert("left nav button tapped")
         })
 
         // Create right navigation button from a system-predefined button (see the full list in NativeControls.m)
         // or from an image
-        plugins.navigationBar.setupRightButton(
+        navBar.setupRightButton(
             null,
             "barButton:Bookmarks", // or your own file like "/www/stylesheets/images/ajax-loader.png",
             function() {
@@ -96,14 +102,14 @@ This example shows how to use the navigation bar:
         )
 
         // You can also enable/disable a button
-        plugins.navigationBar.setLeftButtonEnabled(false)
-        plugins.navigationBar.setRightButtonEnabled(true) // enabled (default)
+        navBar.setLeftButtonEnabled(false)
+        navBar.setRightButtonEnabled(true) // enabled (default)
 
         // or change the tint color (>= iOS 5)
-        plugins.navigationBar.setLeftButtonTint('255,0,0,128') // strong red
-        plugins.navigationBar.setRightButtonTint('20,180,0,60') // green
+        navBar.setLeftButtonTint('255,0,0,128') // strong red
+        navBar.setRightButtonTint('20,180,0,60') // green
 
-        plugins.navigationBar.show()
+        navBar.show()
     }, false)
 
 How to create a custom button (such as an arrow-shaped back button)
@@ -119,7 +125,7 @@ Note: Vertical margins are supported by iOS but not implemented in the plugin – 
 
 Put the button image in the "Resources" folder of your project. Here's some example code on how to use it:
 
-    plugins.navigationBar.setupLeftButton(
+    navBar.setupLeftButton(
         "Baaack",
         "blackbutton.png",
         function() {
@@ -132,7 +138,7 @@ Put the button image in the "Resources" folder of your project. Here's some exam
         }
     )
 
-    plugins.navigationBar.setupRightButton(
+    navBar.setupRightButton(
         null, // with a custom background image, it's possible to set no title at all
         "greenbutton.png",
         function() {
