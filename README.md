@@ -13,6 +13,15 @@ Contributors
 
 This plugin was put together from the incomplete NativeControls plugin and other sources. See NavigationBar.m for the history.
 
+Versions
+--------
+
+Choose the right folder according to your Cordova version:
+
+- 2.0.0 (not developed anymore) for Cordova 2.0.0
+- 2.1.0 (not developed anymore), tested with Cordova 2.1.0 and 2.2.0
+- 2.4.0, tested with Cordova 2.4.0 but should also work older versions (2.1.0 and newer)
+
 Installing the plugin
 ---------------------
 
@@ -26,8 +35,8 @@ Note regarding orientation changes and the tab bar plugin
 If the tab bar plugin is used together with this plugin and the tab bar is positioned on top (defaults to bottom), it's necessary to resize the navigation bar automatically:
 
     window.addEventListener("resize", function() {
-        plugins.navigationBar.resize();
-    ), false);
+        plugins.navigationBar.resize()
+    ), false)
 
 Using the tab bar and navigation bar plugin together
 ----------------------------------------------------
