@@ -495,10 +495,11 @@
         if (image)
         {
             UIImageView * view = [[[UIImageView alloc] initWithImage:image] autorelease];
-            [view setContentMode:UIViewContentModeScaleAspectFit];
-            [view setBounds: CGRectMake(0, 0, 100, 30)];
+            view.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
             [[navBarController navItem] setTitleView:view];
         }
+        else
+            NSLog(@"Nav bar logo %@ not found or could not be loaded", logoURL);
     }
 }
 
