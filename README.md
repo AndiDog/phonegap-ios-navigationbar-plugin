@@ -82,6 +82,8 @@ This example shows how to use the navigation bar:
         navBar.hideRightButton()
 
         navBar.setTitle("My heading")
+        // or with a logo image
+        navBar.setLogo("SomeImageFileFromResourcesOrURL.png")
 
         navBar.showLeftButton()
         navBar.showRightButton()
