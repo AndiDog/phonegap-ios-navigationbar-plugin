@@ -134,8 +134,8 @@ Put the button image in the "Resources" folder of your project. Here's some exam
           alert('leftnavbutton tapped')
         },
         {
-          useImageAsBackground: true
-          fixedMarginLeft: 13 // 13 pixels on the left side are not stretched (the left-arrow shape)
+          useImageAsBackground: true,
+          fixedMarginLeft: 13, // 13 pixels on the left side are not stretched (the left-arrow shape)
           fixedMarginRight: 5 // and 5 pixels on the right side (all room between these margins is used for the text label)
         }
     )
@@ -147,8 +147,8 @@ Put the button image in the "Resources" folder of your project. Here's some exam
           alert('rightnavbutton tapped')
         },
         {
-          useImageAsBackground: true
-          fixedMarginLeft: 5
+          useImageAsBackground: true,
+          fixedMarginLeft: 5,
           fixedMarginRight: 13
         }
     )
