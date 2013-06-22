@@ -41,6 +41,9 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		DA58175B16F4BEF5007AA899 /* Untitled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA58175A16F4BEF5007AA899 /* Untitled.png */; };
+		DA58175D16F4C0F1007AA899 /* NavigationBarBackButtonBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = DA58175C16F4C0F1007AA899 /* NavigationBarBackButtonBlack.png */; };
+		DA58175F16F4C300007AA899 /* Untitled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA58175E16F4C300007AA899 /* Untitled@2x.png */; };
 		DAFF7B3A16DA138700685C4E /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF7B3816DA138700685C4E /* TabBar.m */; };
 		DAFF7B4116DA139D00685C4E /* CDVNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFF7B3B16DA139D00685C4E /* CDVNavigationBar.xib */; };
 		DAFF7B4216DA139D00685C4E /* CDVNavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF7B3D16DA139D00685C4E /* CDVNavigationBarController.m */; };
@@ -105,6 +108,9 @@
 		32CA4F630368D1EE00C91783 /* NavigationBarExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NavigationBarExample-Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* NavigationBarExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "NavigationBarExample-Info.plist"; path = "../NavigationBarExample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		DA58175A16F4BEF5007AA899 /* Untitled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Untitled.png; sourceTree = "<group>"; };
+		DA58175C16F4C0F1007AA899 /* NavigationBarBackButtonBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarBackButtonBlack.png; sourceTree = "<group>"; };
+		DA58175E16F4C300007AA899 /* Untitled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled@2x.png"; sourceTree = "<group>"; };
 		DAFF7B3616DA138700685C4E /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBar.h; path = "../../../../../phonegap-ios-tabbar-plugin/2.4.0 (non-ARC)/Plugin code/TabBar.h"; sourceTree = "<group>"; };
 		DAFF7B3816DA138700685C4E /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBar.m; path = "../../../../../phonegap-ios-tabbar-plugin/2.4.0 (non-ARC)/Plugin code/TabBar.m"; sourceTree = "<group>"; };
 		DAFF7B3B16DA139D00685C4E /* CDVNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CDVNavigationBar.xib; path = "../../../Plugin code/CDVNavigationBar.xib"; sourceTree = "<group>"; };
@@ -207,6 +213,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA58175E16F4C300007AA899 /* Untitled@2x.png */,
+				DA58175C16F4C0F1007AA899 /* NavigationBarBackButtonBlack.png */,
+				DA58175A16F4BEF5007AA899 /* Untitled.png */,
 				30A0434214DC770100060A13 /* de.lproj */,
 				30A0434514DC770100060A13 /* se.lproj */,
 				1F766FDB13BBADB100FB74C0 /* en.lproj */,
@@ -412,6 +421,9 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				DAFF7B4116DA139D00685C4E /* CDVNavigationBar.xib in Resources */,
+				DA58175B16F4BEF5007AA899 /* Untitled.png in Resources */,
+				DA58175D16F4C0F1007AA899 /* NavigationBarBackButtonBlack.png in Resources */,
+				DA58175F16F4C300007AA899 /* Untitled@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
