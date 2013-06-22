@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- DO NOT ADD height=device-height HERE OR THE LAYOUTING WILL BE SCREWED UP (https://issues.apache.org/jira/browse/CB-2439) -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>iOS NavigationBar example</title>
+    </head>
+    <body>
+        <h1>iOS NavigationBar example</h1>
+
+        <p id="ready" style="text-align: center">deviceready not called yet</p>
+
+        <script type="text/javascript" src="cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="js/NavigationBar.js"></script>
+        <script type="text/javascript" src="js/TabBar.js"></script>
+        <script type="text/javascript">
+            document.addEventListener("deviceready", function() {
+                console.log("PhoneGap ready");
+                var readyElement = document.getElementById("ready");
+                readyElement.innerHTML = "deviceready called but not finished";
+
+                var navBar = cordova.require("cordova/plugin/iOSNavigationBar");
+                var tabBar = cordova.require("cordova/plugin/iOSTabBar");
+
+                navBar.init();
+                tabBar.init();
+
+                navBar.create("BlackOpaque");
+
+                navBar.hideLeftButton();
+                navBar.hideRightButton();
+
+                // Switch between these two line to see text vs. image based title
+                navBar.setTitle("My heading");
+                //navBar.setLogo("Untitled.png");
+
+                navBar.showLeftButton();
+                //navBar.showRightButton();
+
+                // Create left navigation button with a title (you can either have a title or an image, not both!)
+                navBar.setupLeftButton("Back", "NavigationBarBackButtonBlack.png", function() {
+                    alert("Back button clicked");
+                }, {
+                    useImageAsBackground: true,fixedMarginLeft: 13,
+                    fixedMarginRight: 5
+                })
+
+                // Create right navigation button from a system-predefined button (see the full list in NativeControls.m)
+                // or from an image
+                navBar.setupRightButton(
+                    null,
+                    "barButton:Bookmarks", // or your own file like "/www/stylesheets/images/ajax-loader.png",
+                    function() {
+                        navBar.setRightButtonEnabled(false);
+                        setTimeout(function() { navBar.setRightButtonTint('20,180,0,60') }, 4000)
+                    }
+                )
+
+                tabBar.create({selectedImageTintColorRgba: "255,40,0,255"});
+
+                tabBar.createItem("contacts", "Unused, iOS replaces this text by Contacts", "tabButton:Contacts");
+                tabBar.createItem("recents", "Unused, iOS replaces this text by Recents", "tabButton:Recents", {
+                    onSelect: function() {
+                        alert("Recents tab selected");
+                    }
+                });
+
+                navBar.show();
+
+                tabBar.show();
+                tabBar.showItems("contacts", "recents");
+
+                window.addEventListener("resize", function() {
+                    navBar.resize();
+                    tabBar.resize();
+                }, false);
+
+                readyElement.innerHTML = "deviceready finished";
+            }, false);
+        </script>
+    </body>
+</html>
